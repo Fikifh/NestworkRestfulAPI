@@ -6,11 +6,13 @@
   "engines": {
     "node": "4.6.1"
     },
+    
   "scripts": {
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "precommit": "yarn lint",
     "prestart": "yarn docs",
-    "start": "cross-env NODE_ENV=production pm2 start ./app/app.js",
-    "dev": "nodemon ./app/app.js",
+    "dev": "cross-env NODE_ENV=production pm2 start ./app/app.js",
+    "start": "nodemon ./app/app.js",
     "docs": "apidoc -i app -o docs",
     "postdocs": "opn docs/index.html"
   },
