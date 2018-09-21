@@ -9,7 +9,7 @@
   "scripts": {
     "precommit": "yarn lint",
     "prestart": "yarn docs",
-    "start": "cross-env NODE_ENV=production pm2 start ./src/index.js",
+    "start": "cross-env NODE_ENV=production pm2 start ./app/app.js",
     "dev": "nodemon ./app/app.js",
     "docs": "apidoc -i app -o docs",
     "postdocs": "opn docs/index.html"

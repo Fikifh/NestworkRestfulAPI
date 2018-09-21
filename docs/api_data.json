@@ -3041,7 +3041,7 @@
             "type": "String",
             "optional": false,
             "field": "status",
-            "description": "<p>User's email</p>"
+            "description": "<p>[0=approved or 1=declined]</p>"
           }
         ]
       }
