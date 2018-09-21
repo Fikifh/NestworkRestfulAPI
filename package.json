@@ -2,6 +2,10 @@
   "name": "nestwork",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "this is service for netswork present",
+  "engines": {
+    "node": "4.6.1"
+    },
   "scripts": {
     "precommit": "yarn lint",
     "prestart": "yarn docs",
