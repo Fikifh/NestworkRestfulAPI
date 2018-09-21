@@ -39,7 +39,8 @@ app.use(cors());
 app.use(passport.initialize());
 passport.use('jwt', strategies.jwt);
 
-
+//END POINT WELCOME
+app.use('/', function(req, res){res.json({'message':'Welcome to Netswork API'})});
 
 // mount api v1 routes
 app.use('/api', routes);
