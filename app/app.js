@@ -1,5 +1,5 @@
 Promise = require('bluebird');
-var { port, env } = require('./config/variables');
+const { port, env } = require('./config/variables');
 const app = require('./config/express');
 const mongoose = require('./config/mongoose');
 
