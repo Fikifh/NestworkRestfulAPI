@@ -10,6 +10,8 @@ const routes = require('../api/routes/v1');
 const {logs} = require('./variables');
 const strategies = require('./passport');
 const error = require('../middleware/error');
+const path = require('path');
+var multer = require('multer');
 
 const app = express();
 
@@ -36,11 +38,12 @@ app.use(cors());
 // enable authentication
 app.use(passport.initialize());
 passport.use('jwt', strategies.jwt);
-passport.use('facebook', strategies.facebook);
-passport.use('google', strategies.google);
+
+
 
 // mount api v1 routes
 app.use('/api', routes);
+
 
 // if error is not an instanceOf APIError, convert it.
 app.use(error.converter);
@@ -50,5 +53,7 @@ app.use(error.notFound);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
+
+
 
 module.exports = app;
