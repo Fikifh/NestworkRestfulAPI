@@ -146,7 +146,7 @@ exports.uploadImageProfil = async (req, res, next)=>{
   if(!req.file){
     res.status(404).json({message:'File is Empty'});
   }else{
-    const linknya = 'http://localhost:3000/'+req.file.filename;
+    const linknya = 'https://nestworkapi.herokuapp.com/'+req.file.filename;
     console.log('input link');
     User.findByIdAndUpdate({'_id':id},{'avatarLink' : linknya }, (err, result) => {
       const fil = [req.file];

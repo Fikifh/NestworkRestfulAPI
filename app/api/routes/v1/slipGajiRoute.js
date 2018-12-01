@@ -1,14 +1,23 @@
 const express = require('express');
 const validate = require('express-validation');
 const slipGajiController = require('../../controllers/slipGajiController')
+
 const { authorize, ADMIN, LOGGED_USER } = require('../../../middleware/auth');
-const {
-  listUsers,
-  createUser,
-  replaceUser,
-  updateUser,
-} = require('../../validations/user.validation');
 const router = express.Router();
+
+const {
+  ajukanCuti,
+  getAllCuti,
+  getOneCuti,
+  accCuti,
+  tolakCuti,
+  findByStatus,
+  findByRespons,
+  DeleteAllCuti,
+  deleteCuti,
+  dropCollectionCuti
+} = require('../../validations/cuti.validation');
+
 router
   .route('/ajukanSlipGaji')
   /**
@@ -34,7 +43,7 @@ router
    *
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated Users can access the data
    */
-    .post(authorize(), slipGajiController.ajukanSlipGaji);
+    .post(authorize(LOGGED_USER), validate(ajukanCuti), slipGajiController.ajukanSlipGaji);
 router.route('/getAllSlipGaji')
   /**
    * @api {get} api/slipGaji/getAllSlipGaji Get All User's Salary Slip
@@ -72,7 +81,7 @@ router.route('/getOneSlipGaji/:email')
  *
  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated Users can access the data
  */
-  .get(authorize(), slipGajiController.getOneSlipGaji);
+  .get(authorize(LOGGED_USER), slipGajiController.getOneSlipGaji);
   router
     .route('/updateSlipGaji/:id')
   /**

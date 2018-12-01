@@ -42,19 +42,15 @@ passport.use('jwt', strategies.jwt);
 // mount api v1 routes
 app.use('/api', routes);
 
-
-//END POINT WELCOME
-app.use('/', function(req, res){res.json({'message':'Welcome to Netswork API'})});
-
 // if error is not an instanceOf APIError, convert it.
 app.use(error.converter);
+
 
 // catch 404 and forward to erro.r handler
 app.use(error.notFound);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
-
 
 
 module.exports = app;
